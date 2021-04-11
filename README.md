@@ -1,6 +1,6 @@
 # Fitness Landscape Analysis of Graph Neural Network Architecture Search Spaces  
 ## The Genetic and Evolutionary Computation Conference (GECCO) - 2021  
-### Matheus Nunes, Paulo M. Fraga and Gisele L. Pappa  
+### Matheus Nunes, Paulo M. Fraga ([github](https://github.com/paulohmf)) and Gisele L. Pappa  
 
 #### Overview  
 
