@@ -4,7 +4,14 @@
 
 #### Overview  
 
-This repository contains code from the original GraphNAS [repository](https://github.com/GraphNAS/GraphNAS) and from the \[Nunes & Pappa, 2020\] [fork](https://github.com/mhnnunes/nas_gnn) . It holds the code for the Evolutionary Algorithm ([here](graphnas/evolution_trainer.py)) and Random Search ([here](graphnas/rs_trainer.py)) strategies, implemented for this paper.  
+This repository contains code from the original GraphNAS [repository](https://github.com/GraphNAS/GraphNAS) and from the \[Nunes & Pappa, 2020\] [fork](https://github.com/mhnnunes/nas_gnn).  
+
+In this paper, we extend the work of [Nunes & Pappa, 2020](https://link.springer.com/chapter/10.1007/978-3-030-61377-8_21) by:  
+1. Expanding the search space for each dataset (as done [here](src/expand_cora_macro.py))  
+2. Encoding the architectures in two different ways ([here](src/architecture_analysis/generate_encode_macro_full.py))  
+3. Calculating FLA metrics for both representations ([here](src/architecture_analysis/1.graph_result_analysis.ipynb) and [here](src/architecture_analysis/tsne_analysis.py))  
+
+The results can be found in this [notebook](src/architecture_analysis/1.graph_result_analysis.ipynb).  
 
 #### Requirements  
 
@@ -15,28 +22,23 @@ We have provided a utility script that installs the dependencies, considering th
 Example run:  
 
 ```{bash}  
-./virtualenv_script.sh /opt/cache # use this parameter if you would like to use a different dir. as pip's cache  
+./virtualenv_script.sh  
 ```  
 
 After executing this script, you will have an Anaconda powered virtual environment called py37 with the dependencies necessary to run the code in this repository.  
 
 #### Running the code  
 
-We have made available a script for generating the experiment combinations used in the paper. Just run:  
+The execution of the code for this paper is divided into two parts: a server that evaluates the architectures, and the client that requests the evaluations. In order to run the server, just `cd` into the `src` directory and run:  
 
 ```{bash}  
-./generate_experiment_combinations.sh [ea|rs|rl]  
+python -u -m server_client.evaluator_server -p 12345    
 ```  
 
-The parameter is the desired optimizer: one of {ea, rl, rs}.  
+This command initiates a server on port `12345`.
 
-#### Results  
+In order to execute the script that runs the architecture evaluations in this work, just run the codes in the first item of the list in section [Overview](#overview).  
 
-The results are summarized into a jupyter notebook ([here](1.result_analysis.ipynb)). If you would like to re-execute the notebook, please de-compress the results files `macro_results.tar.xz` and `micro_results.tar.xz`.  
-
-```{bash}  
-tar -xvf macro_results.tar.xz  
-```  
 
 #### Acknowledgements  
 This repo is modified based on [DGL](https://github.com/dmlc/dgl), [PYG](https://github.com/rusty1s/pytorch_geometric) and [GraphNAS](https://github.com/GraphNAS/GraphNAS).  
