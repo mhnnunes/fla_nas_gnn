@@ -1,0 +1,6 @@
+Cora;['cos','sum','tanh',1,16,'gcn','sum','tanh',1,7]
+Cora;['const','sum','leaky_relu',2,8,'gat_sym','sum','linear',1,7]
+Citeseer;['linear','mlp','elu',4,16,'linear','sum','tanh',4,6]
+Citeseer;['linear','mlp','linear',4,16,'gcn','sum','tanh',6,6]
+Pubmed;['gat','mlp','tanh',4,8,'gat_sym','sum','tanh',4,3] 
+Pubmed;['cos','sum','relu6',4,128,'generalized_linear','mlp','linear',1,3]
