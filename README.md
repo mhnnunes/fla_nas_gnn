@@ -15,7 +15,7 @@ The results can be found in this [notebook](src/architecture_analysis/1.graph_re
 
 #### Requirements  
 
-Recent versions of PyTorch, numpy, scipy, dgl, and torch_geometric are required.  
+Recent versions of `PyTorch`, `numpy`, `pandas`, `scipy`, `dgl`, and `torch_geometric` are required.  
 
 We have provided a utility script that installs the dependencies, considering the usage of CUDA 10.1. If this is not your CUDA version, follow the instructions on the script.  
 
